@@ -1,0 +1,24 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+
+# Dataset
+dataset/
+
+# Model checkpoints and generated caches
+*.pth
+*.pt
+
+# Experiment outputs
+*.csv
+*.log
+residual_phase2_split.json
+
+# IDE
+.vscode/
+.idea/
+
+# Generated visualizations
+mc_uncertainty_visualization.png
+prediction_diagnostics.png
