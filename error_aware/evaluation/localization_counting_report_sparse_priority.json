@@ -1,0 +1,78 @@
+{
+  "checkpoint_sha256": "40b78221f5882ea00cb89a247c2debd2c3113a96ba7c02ed7e0e2995e0693cd4",
+  "policy": {
+    "mass_threshold": 0.5,
+    "raw_min": 4.0,
+    "raw_max": 8.0
+  },
+  "validation": {
+    "baseline": {
+      "images": 647,
+      "rounded_image_mae": 4.874806800618238,
+      "sparse_image_mae": 2.005,
+      "empty_image_mae": 1.8389830508474576,
+      "exact_images": 91
+    },
+    "localized": {
+      "images": 647,
+      "rounded_image_mae": 4.871715610510046,
+      "sparse_image_mae": 1.93,
+      "empty_image_mae": 1.8135593220338984,
+      "exact_images": 95
+    }
+  },
+  "test": {
+    "baseline": {
+      "images": 648,
+      "rounded_image_mae": 5.160493827160494,
+      "sparse_image_mae": 2.04,
+      "empty_image_mae": 1.8818181818181818,
+      "exact_images": 102
+    },
+    "localized": {
+      "images": 648,
+      "rounded_image_mae": 5.175925925925926,
+      "sparse_image_mae": 2.02,
+      "empty_image_mae": 1.8454545454545455,
+      "exact_images": 101
+    }
+  },
+  "accepted": false,
+  "regressions": [
+    {
+      "image": "D:\\aerial-crowd-counting\\WhatsApp Image 2026-11-18 at 11.16.26.jpeg",
+      "raw_count": 2.507598874026965,
+      "masses": [
+        0.15235080779530108,
+        0.6736190710216761,
+        0.03344221506267786,
+        0.0019220083486288786,
+        0.03497466957196593,
+        1.1420257820282131,
+        0.004899469669908285,
+        0.00386200868524611,
+        0.021807791432365775,
+        0.4356648051762022
+      ],
+      "expected_count": 3,
+      "predicted_count": 3
+    },
+    {
+      "image": "D:\\aerial-crowd-counting\\WhatsApp Image 2026-11-18 at 08.59.23.jpeg",
+      "raw_count": 6.060915198528436,
+      "masses": [
+        0.17058952990919352,
+        1.41232184227556,
+        1.0992066455073655,
+        0.005539396777749062,
+        1.3664326549042016,
+        0.141963706118986,
+        0.00901905121281743,
+        0.6087831323966384,
+        1.2344400358852
+      ],
+      "expected_count": 5,
+      "predicted_count": 5
+    }
+  ]
+}

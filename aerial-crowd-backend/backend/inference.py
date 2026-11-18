@@ -1,4 +1,7 @@
 
+import hashlib
+import json
+import math
 import sys
 import time
 from pathlib import Path
@@ -6,6 +9,11 @@ from pathlib import Path
 import numpy as np
 import torch
 from PIL import Image
+
+if __package__:
+    from .localization import component_masses, choose_count
+else:
+    from localization import component_masses, choose_count
 
 # --------------------------------------------------
 # Project path configuration
@@ -137,6 +145,7 @@ class CrowdCounterService:
         checkpoint_path: Path,
         device_name="auto",
         tile_size=512,
+        count_policy_path=None,
     ):
 
         # Device selection
@@ -184,10 +193,29 @@ class CrowdCounterService:
         )
 
         self.model.eval()
+        self.count_policy = None
+        if count_policy_path is not None:
+            document = json.loads(Path(count_policy_path).read_text(encoding="utf-8"))
+            if document.get("algorithm") != "sparse_components_v1":
+                raise ValueError("Unsupported count policy algorithm")
+            digest = hashlib.sha256(checkpoint_path.read_bytes()).hexdigest()
+            if document.get("checkpoint_sha256") == digest:
+                policy = {key: float(document["policy"][key])
+                          for key in ("mass_threshold", "raw_min", "raw_max", "max_component_mass")}
+                if (not all(math.isfinite(v) for v in policy.values())
+                        or policy["mass_threshold"] <= 0
+                        or policy["max_component_mass"] < policy["mass_threshold"]
+                        or not 0 <= policy["raw_min"] <= policy["raw_max"]):
+                    raise ValueError("Invalid count policy thresholds")
+                self.count_policy = policy
+            else:
+                print("[AirCount] Count policy skipped: checkpoint hash differs.")
 
         print(f"[AirCount] Device: {self.device}")
         print(f"[AirCount] Checkpoint: {checkpoint_path}")
         print(f"[AirCount] Loaded {matched} coarse-counter tensors.")
+        if self.count_policy:
+            print(f"[AirCount] Sparse counting policy: {self.count_policy}")
 
         if isinstance(metadata, dict):
             print(
@@ -272,7 +300,7 @@ class CrowdCounterService:
     # --------------------------------------------------
 
     @torch.inference_mode()
-    def predict(self, image: Image.Image):
+    def predict(self, image: Image.Image, return_density=False):
 
         start = time.perf_counter()
 
@@ -281,8 +309,8 @@ class CrowdCounterService:
         original_w, original_h = image.size
         tile = self.tile_size
 
-        # Pad right/bottom by replicating edge pixels.
-        # No resizing: preserve the pixel scale used during training.
+        # PIL crop in ErrorAwareCrowdDataset pads out-of-bounds pixels black.
+        # Use the same padding here and preserve the training pixel scale.
 
         padded_w = (
             (original_w + tile - 1) // tile
@@ -298,42 +326,6 @@ class CrowdCounterService:
         )
 
         canvas.paste(image, (0, 0))
-
-        if padded_w > original_w:
-
-            edge = image.crop(
-                (
-                    original_w - 1,
-                    0,
-                    original_w,
-                    original_h,
-                )
-            ).resize(
-                (
-                    padded_w - original_w,
-                    original_h,
-                )
-            )
-
-            canvas.paste(edge, (original_w, 0))
-
-        if padded_h > original_h:
-
-            edge = canvas.crop(
-                (
-                    0,
-                    original_h - 1,
-                    padded_w,
-                    original_h,
-                )
-            ).resize(
-                (
-                    padded_w,
-                    padded_h - original_h,
-                )
-            )
-
-            canvas.paste(edge, (0, original_h))
 
         # Full density map at stride 8
         full_density = np.zeros(
@@ -404,7 +396,11 @@ class CrowdCounterService:
         ]
 
         # Density values represent count mass per stride-8 cell.
-        count = float(display_density.sum())
+        raw_count = float(display_density.sum(dtype=np.float64))
+        policy = getattr(self, "count_policy", None)
+        masses = component_masses(display_density) if policy is not None else ()
+        predicted_count, count_method = choose_count(raw_count, masses, policy)
+        estimated_count = float(predicted_count) if count_method == "localized_components" else raw_count
 
         heatmap = self._make_heatmap(
             display_density,
@@ -415,12 +411,15 @@ class CrowdCounterService:
             time.perf_counter() - start
         ) * 1000.0
 
-        return {
-            "predicted_count": max(
-                0,
-                int(round(count)),
-            ),
+        result = {
+            "predicted_count": predicted_count,
+            "raw_count": raw_count,
+            "estimated_count": estimated_count,
+            "count_method": count_method,
             "inference_time_ms": elapsed_ms,
             "density_map": heatmap,
             "tiles_processed": tile_count,
         }
+        if return_density:
+            result["density_array"] = display_density
+        return result

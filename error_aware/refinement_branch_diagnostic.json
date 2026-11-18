@@ -1,0 +1,32 @@
+{
+  "samples": 50,
+  "budget": 0.25,
+  "selection": "oracle",
+  "mean_selected_cells": 64.0,
+  "results": {
+    "coarse": {
+      "all_mae": 0.7925529608291194,
+      "empty_mae": 0.10444998705002548,
+      "nonempty_mae": 3.232190776954998,
+      "mean_count_delta": 0.0
+    },
+    "gain_only": {
+      "all_mae": 0.7924681769849107,
+      "empty_mae": 0.1044672267866499,
+      "nonempty_mae": 3.231744273142381,
+      "mean_count_delta": 0.0001386793334723792
+    },
+    "additive_only": {
+      "all_mae": 0.7928195798583328,
+      "empty_mae": 0.10488545744178387,
+      "nonempty_mae": 3.23185874115337,
+      "mean_count_delta": 0.00045128266349511893
+    },
+    "combined": {
+      "all_mae": 0.7927347533602733,
+      "empty_mae": 0.10490270057030451,
+      "nonempty_mae": 3.231412031433799,
+      "mean_count_delta": 0.0005899992133405313
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "baseline": {
+    "checkpoint": "D:\\aerial-crowd-counting\\error_aware\\checkpoints_stage1_holdout80\\coarse_best.pth",
+    "checkpoint_sha256": "472d8bd4cf62e9ac2e1559468711d65c8a56a59844a0e9f7617c974ff7273be9",
+    "sample_image": "D:\\aerial-crowd-counting\\WhatsApp Image 2026-11-18 at 11.16.26.jpeg",
+    "test": {
+      "mae": 0.7996748914945813,
+      "rmse": 2.4318978248514833,
+      "sparse_mae": 1.239063746266366,
+      "sparse_image_mae": 2.0869517798162236,
+      "image_mae": 5.266239447988066,
+      "crops": 5657
+    },
+    "sample": {
+      "predicted_count": 2,
+      "raw_count": 2.0687027577664416,
+      "estimated_count": 2.0687027577664416,
+      "inference_time_ms": 681.7771000787616,
+      "tiles_processed": 8
+    }
+  },
+  "candidate": {
+    "checkpoint": "D:\\aerial-crowd-counting\\error_aware\\checkpoints_low_vram\\coarse_last.pth",
+    "checkpoint_sha256": "fe3ce0444c6bfb1a89a96d4b45c1307c47135b180ab3b79a152a1b918885f079",
+    "sample_image": "D:\\aerial-crowd-counting\\WhatsApp Image 2026-11-18 at 11.16.26.jpeg",
+    "test": {
+      "mae": 0.8065256299431238,
+      "rmse": 2.3854362303511967,
+      "sparse_mae": 1.2458361879868798,
+      "sparse_image_mae": 2.3520978825188172,
+      "image_mae": 5.16671911636735,
+      "crops": 5657
+    },
+    "sample": {
+      "predicted_count": 3,
+      "raw_count": 2.8596499087042933,
+      "estimated_count": 2.8596499087042933,
+      "inference_time_ms": 511.20830001309514,
+      "tiles_processed": 8
+    }
+  }
+}

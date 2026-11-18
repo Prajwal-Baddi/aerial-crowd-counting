@@ -1,0 +1,8 @@
+{
+    "min_coverage":  0.75,
+    "evaluation_report":  "error_aware/evaluation/person_detection_handoff.json",
+    "density_checkpoint_sha256":  "40b78221f5882ea00cb89a247c2debd2c3113a96ba7c02ed7e0e2995e0693cd4",
+    "score_threshold":  0.8,
+    "detector_checkpoint_sha256":  "dd69338a24b8d7381807e247652bdc356325bcbaf1cd3e092e00e0a1a58706bf",
+    "algorithm":  "large_people_v1"
+}

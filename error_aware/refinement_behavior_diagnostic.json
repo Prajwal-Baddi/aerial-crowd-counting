@@ -1,0 +1,160 @@
+{
+  "samples": 50,
+  "batches": 50,
+  "budget": 0.25,
+  "selection": "oracle",
+  "empty_cell_threshold": 0.05,
+  "selected_cells": 3200,
+  "gain_distribution": {
+    "count": 315,
+    "mean": 1.000136291602301,
+    "std": 0.00011681985478322964,
+    "min": 0.999709963798523,
+    "p25": 1.0000632405281067,
+    "median": 1.000132441520691,
+    "p75": 1.000203549861908,
+    "max": 1.0005614757537842
+  },
+  "add_distribution": {
+    "count": 3200,
+    "mean": 8.013081700539715e-06,
+    "std": 2.9878317416635252e-06,
+    "min": 3.2969151106954087e-06,
+    "p25": 5.8311006796429865e-06,
+    "median": 7.129576488296152e-06,
+    "p75": 9.872135251498548e-06,
+    "max": 2.124306956829969e-05
+  },
+  "gain_distribution_definition": "Count-weighted effective gain per selected cell; cells with zero coarse count are excluded.",
+  "add_distribution_definition": "Sum of the 4x4 additive density patch per selected cell.",
+  "gain_correction_distribution": {
+    "count": 3200,
+    "mean": 2.385856752777194e-06,
+    "std": 1.717781727715505e-05,
+    "min": -2.504885196685791e-05,
+    "p25": 0.0,
+    "median": 0.0,
+    "p75": 0.0,
+    "max": 0.0005251169204711914
+  },
+  "add_correction_distribution": {
+    "count": 3200,
+    "mean": 8.013081700539715e-06,
+    "std": 2.9878317416635252e-06,
+    "min": 3.2969151106954087e-06,
+    "p25": 5.8311006796429865e-06,
+    "median": 7.129576488296152e-06,
+    "p75": 9.872135251498548e-06,
+    "max": 2.124306956829969e-05
+  },
+  "combined_correction_distribution": {
+    "count": 3200,
+    "mean": 1.039892749687965e-05,
+    "std": 1.7898014155130878e-05,
+    "min": -1.341104507446289e-05,
+    "p25": 5.8311006796429865e-06,
+    "median": 7.1587012371310266e-06,
+    "p75": 1.0208186722593382e-05,
+    "max": 0.0005371570587158203
+  },
+  "gain_percentages": {
+    "denominator_cells_with_nonzero_coarse_count": 315,
+    "below_one": 9.841269841269842,
+    "above_one": 90.15873015873017,
+    "equal_one": 2.2222222222222223
+  },
+  "add_percentages": {
+    "denominator_selected_cells": 3200,
+    "positive": 100.0,
+    "zero": 0.0
+  },
+  "cell_error": {
+    "all": {
+      "gain_only": {
+        "cells": 3200,
+        "before_mae": 0.02278074436498261,
+        "after_mae": 0.022781085963627313,
+        "mean_error_change": 3.415986447054691e-07,
+        "improved_pct": 2.34375,
+        "worsened_pct": 6.3125,
+        "unchanged_pct": 91.34375
+      },
+      "additive_only": {
+        "cells": 3200,
+        "before_mae": 0.02278074436498261,
+        "after_mae": 0.02278815087575694,
+        "mean_error_change": 7.4065107743355475e-06,
+        "improved_pct": 2.8125,
+        "worsened_pct": 97.1875,
+        "unchanged_pct": 0.0
+      },
+      "combined": {
+        "cells": 3200,
+        "before_mae": 0.02278074436498261,
+        "after_mae": 0.022788492316659158,
+        "mean_error_change": 7.747951676553984e-06,
+        "improved_pct": 2.875,
+        "worsened_pct": 97.125,
+        "unchanged_pct": 0.0
+      }
+    },
+    "empty": {
+      "gain_only": {
+        "cells": 3108,
+        "before_mae": 0.006727783582619551,
+        "after_mae": 0.0067288012509045935,
+        "mean_error_change": 1.017668285043446e-06,
+        "improved_pct": 0.7722007722007722,
+        "worsened_pct": 6.048906048906049,
+        "unchanged_pct": 93.17889317889318
+      },
+      "additive_only": {
+        "cells": 3108,
+        "before_mae": 0.006727783582619551,
+        "after_mae": 0.006735636880894555,
+        "mean_error_change": 7.85329827500462e-06,
+        "improved_pct": 0.3861003861003861,
+        "worsened_pct": 99.61389961389962,
+        "unchanged_pct": 0.0
+      },
+      "combined": {
+        "cells": 3108,
+        "before_mae": 0.006727783582619551,
+        "after_mae": 0.006736654548580573,
+        "mean_error_change": 8.870965961023546e-06,
+        "improved_pct": 0.41827541827541825,
+        "worsened_pct": 99.58172458172459,
+        "unchanged_pct": 0.0
+      }
+    },
+    "nonempty": {
+      "gain_only": {
+        "cells": 92,
+        "before_mae": 0.5650916368822041,
+        "after_mae": 0.5650691390847382,
+        "mean_error_change": -2.24977974658427e-05,
+        "improved_pct": 55.434782608695656,
+        "worsened_pct": 15.217391304347828,
+        "unchanged_pct": 29.347826086956523
+      },
+      "additive_only": {
+        "cells": 92,
+        "before_mae": 0.5650916368822041,
+        "after_mae": 0.5650839497456732,
+        "mean_error_change": -7.68713653087616e-06,
+        "improved_pct": 84.78260869565217,
+        "worsened_pct": 15.217391304347828,
+        "unchanged_pct": 0.0
+      },
+      "combined": {
+        "cells": 92,
+        "before_mae": 0.5650916368822041,
+        "after_mae": 0.5650614464817487,
+        "mean_error_change": -3.0190400455308996e-05,
+        "improved_pct": 85.86956521739131,
+        "worsened_pct": 14.130434782608695,
+        "unchanged_pct": 0.0
+      }
+    }
+  }
+}

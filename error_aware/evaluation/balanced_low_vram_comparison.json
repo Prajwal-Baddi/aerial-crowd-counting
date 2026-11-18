@@ -1,0 +1,48 @@
+{
+    "baseline":  {
+                     "checkpoint":  "D:\\aerial-crowd-counting\\error_aware\\checkpoints_stage1_holdout80\\coarse_best.pth",
+                     "checkpoint_sha256":  "472d8bd4cf62e9ac2e1559468711d65c8a56a59844a0e9f7617c974ff7273be9",
+                     "sample_image":  "D:\\aerial-crowd-counting\\WhatsApp Image 2026-11-18 at 11.16.26.jpeg",
+                     "test":  {
+                                  "mae":  0.7996748914945813,
+                                  "rmse":  2.4318978248514833,
+                                  "sparse_mae":  1.239063746266366,
+                                  "sparse_image_mae":  2.0869517798162236,
+                                  "image_mae":  5.266239447988066,
+                                  "crops":  5657
+                              },
+                     "sample":  {
+                                    "predicted_count":  2,
+                                    "raw_count":  2.0687027577664416,
+                                    "estimated_count":  2.0687027577664416,
+                                    "inference_time_ms":  681.7771000787616,
+                                    "tiles_processed":  8
+                                }
+                 },
+    "candidate":  {
+                      "checkpoint":  "error_aware\\checkpoints_balanced_low_vram\\coarse_average_0.375.pth",
+                      "checkpoint_sha256":  "40b78221f5882ea00cb89a247c2debd2c3113a96ba7c02ed7e0e2995e0693cd4",
+                      "sample_image":  "D:\\aerial-crowd-counting\\WhatsApp Image 2026-11-18 at 11.16.26.jpeg",
+                      "test":  {
+                                   "mae":  0.7968213371452147,
+                                   "rmse":  2.4118388445837495,
+                                   "sparse_mae":  1.2426653434369754,
+                                   "sparse_image_mae":  2.0852187921250867,
+                                   "image_mae":  5.182489665754065,
+                                   "crops":  5657
+                               },
+                      "sample":  {
+                                     "predicted_count":  3,
+                                     "raw_count":  2.507598874026965,
+                                     "estimated_count":  2.507598874026965,
+                                     "inference_time_ms":  580.0648999866098,
+                                     "tiles_processed":  8
+                                 }
+                  },
+    "deployment":  {
+                       "training_epochs_completed":  3,
+                       "checkpoint_sha256":  "40b78221f5882ea00cb89a247c2debd2c3113a96ba7c02ed7e0e2995e0693cd4",
+                       "peak_training_reserved_gib":  0.83984375,
+                       "checkpoint":  "D:\\aerial-crowd-counting\\error_aware\\checkpoints_balanced_low_vram\\coarse_validated.pth"
+                   }
+}

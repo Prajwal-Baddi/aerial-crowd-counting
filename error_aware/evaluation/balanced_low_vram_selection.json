@@ -1,0 +1,33 @@
+{
+  "provenance": {
+    "first": "D:\\aerial-crowd-counting\\error_aware\\checkpoints_low_vram\\coarse_last.pth",
+    "second": "D:\\aerial-crowd-counting\\error_aware\\checkpoints_sparse_low_vram\\coarse_epoch_1.pth",
+    "weight_second": 0.375,
+    "first_sha256": "fe3ce0444c6bfb1a89a96d4b45c1307c47135b180ab3b79a152a1b918885f079",
+    "second_sha256": "8e58f5d22b89621c174710f92aac0453295a5266380f4dbf6fb427c452a3c7b2"
+  },
+  "reference": {
+    "mae": 0.7873089950568353,
+    "rmse": 2.4630087206126032,
+    "sparse_mae": 1.2369974831986297,
+    "sparse_image_mae": 2.0846895605600415,
+    "image_mae": 4.978368848817979,
+    "crops": 5578
+  },
+  "validation": {
+    "mae": 0.7767784519003859,
+    "rmse": 2.423846404393679,
+    "sparse_mae": 1.2270571699021273,
+    "sparse_image_mae": 2.0546173400528245,
+    "image_mae": 4.894061531509956,
+    "crops": 5578
+  },
+  "sample": {
+    "predicted_count": 3,
+    "raw_count": 2.507598874026965,
+    "estimated_count": 2.507598874026965,
+    "inference_time_ms": 590.6935998937115,
+    "tiles_processed": 8
+  },
+  "eligible": true
+}

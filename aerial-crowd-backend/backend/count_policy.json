@@ -1,0 +1,11 @@
+{
+    "evaluation_report":  "error_aware/evaluation/localization_counting_report.json",
+    "policy":  {
+                   "mass_threshold":  0.6,
+                   "raw_min":  4.0,
+                   "raw_max":  8.0,
+                   "max_component_mass":  1.5
+               },
+    "algorithm":  "sparse_components_v1",
+    "checkpoint_sha256":  "40b78221f5882ea00cb89a247c2debd2c3113a96ba7c02ed7e0e2995e0693cd4"
+}

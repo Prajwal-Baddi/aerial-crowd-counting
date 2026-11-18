@@ -1,0 +1,52 @@
+{
+  "density_checkpoint_sha256": "40b78221f5882ea00cb89a247c2debd2c3113a96ba7c02ed7e0e2995e0693cd4",
+  "detector_checkpoint_sha256": "dd69338a24b8d7381807e247652bdc356325bcbaf1cd3e092e00e0a1a58706bf",
+  "score_threshold": 0.8,
+  "min_coverage": 0.75,
+  "validation": {
+    "baseline": {
+      "images": 647,
+      "image_mae": 4.867078825347759,
+      "sparse_image_mae": 1.965,
+      "empty_image_mae": 1.8305084745762712,
+      "exact_images": 92
+    },
+    "auto": {
+      "images": 647,
+      "image_mae": 4.865533230293663,
+      "sparse_image_mae": 1.96,
+      "empty_image_mae": 1.8305084745762712,
+      "exact_images": 93
+    },
+    "handoffs": 1,
+    "reasons": {
+      "no_person_detections": 268,
+      "tiny_or_distant_people": 374,
+      "models_disagree": 3,
+      "unexplained_density": 1,
+      "large_visible_people": 1
+    }
+  },
+  "test": {
+    "baseline": {
+      "images": 648,
+      "image_mae": 5.165123456790123,
+      "sparse_image_mae": 2.01,
+      "empty_image_mae": 1.8727272727272728,
+      "exact_images": 102
+    },
+    "auto": {
+      "images": 648,
+      "image_mae": 5.165123456790123,
+      "sparse_image_mae": 2.01,
+      "empty_image_mae": 1.8727272727272728,
+      "exact_images": 102
+    },
+    "handoffs": 0,
+    "reasons": {
+      "no_person_detections": 259,
+      "tiny_or_distant_people": 389
+    }
+  },
+  "accepted": true
+}
