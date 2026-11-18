@@ -1,24 +1,88 @@
-# Python
+
+# ==========================================
+# AirCount - Aerial Crowd Counting
+# ==========================================
+
+# Python environments and cache
 .venv/
+venv/
+env/
 __pycache__/
 *.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
-# Dataset
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Dataset and processed data
 dataset/
+error_aware/processed/
+error_aware/analysis/
+*.npz
+*.npy
+*.pkl
+*.pickle
 
-# Model checkpoints and generated caches
+# Model checkpoints and weights
 *.pth
 *.pt
+*.ckpt
+*.safetensors
+checkpoints/
+**/checkpoints*/
+**/runs/
 
-# Experiment outputs
+# Training and experiment outputs
+outputs/
+evaluation_results/
 *.csv
 *.log
+*.jsonl
 residual_phase2_split.json
-
-# IDE
-.vscode/
-.idea/
 
 # Generated visualizations
 mc_uncertainty_visualization.png
 prediction_diagnostics.png
+
+# Frontend dependencies and builds
+node_modules/
+dist/
+build/
+coverage/
+*.tsbuildinfo
+
+# Backend generated files
+aerial-crowd-backend/outputs/
+aerial-crowd-backend/backend/outputs/
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Generated diagnostics
+error_aware/diagnostics/
+error_aware/diagnostics_multiplicative/
+error_aware/detection_evaluation/*.png
+
+# Generated archives
+*.zip
+
+# Python build artifacts
+__pycache__/
+*.py[cod]

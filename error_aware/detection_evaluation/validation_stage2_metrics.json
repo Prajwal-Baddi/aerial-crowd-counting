@@ -1,0 +1,126 @@
+{
+  "split": "validation",
+  "mode": "stage2",
+  "checkpoint": "error_aware/checkpoints_stage2_multiplicative_stability/stage2_best.pth",
+  "checkpoint_epoch": 1,
+  "samples": 5578,
+  "count_metrics": {
+    "mae": 0.7738099152455357,
+    "rmse": 2.4001214689225185
+  },
+  "point_localization": {
+    "8.0": {
+      "matching_radius_pixels": 8.0,
+      "tp": 3062,
+      "fp": 3486,
+      "fn": 4640,
+      "precision": 0.467623701893708,
+      "recall": 0.39755907556478837,
+      "f1": 0.4297543859649122
+    },
+    "16.0": {
+      "matching_radius_pixels": 16.0,
+      "tp": 3462,
+      "fp": 3086,
+      "fn": 4240,
+      "precision": 0.5287110568112401,
+      "recall": 0.4494936380160997,
+      "f1": 0.4858947368421053
+    },
+    "24.0": {
+      "matching_radius_pixels": 24.0,
+      "tp": 3616,
+      "fp": 2932,
+      "fn": 4086,
+      "precision": 0.5522296884544899,
+      "recall": 0.46948844455985456,
+      "f1": 0.5075087719298245
+    }
+  },
+  "occupancy_best_from_sweep": {
+    "threshold": 0.75,
+    "accuracy": 0.8755826461097167,
+    "precision_nonempty": 0.7627118644067796,
+    "recall_nonempty": 0.7935989549314174,
+    "f1_nonempty": 0.7778489116517284,
+    "tn": 3669,
+    "fp": 378,
+    "fn": 316,
+    "tp": 1215
+  },
+  "occupancy_selected_threshold": {
+    "threshold": 0.75,
+    "accuracy": 0.8755826461097167,
+    "precision_nonempty": 0.7627118644067796,
+    "recall_nonempty": 0.7935989549314174,
+    "f1_nonempty": 0.7778489116517284,
+    "tn": 3669,
+    "fp": 378,
+    "fn": 316,
+    "tp": 1215
+  },
+  "occupancy_threshold_sweep": [
+    {
+      "threshold": 0.1,
+      "accuracy": 0.80010756543564,
+      "precision_nonempty": 0.5862354892205639,
+      "recall_nonempty": 0.9235793598954931,
+      "f1_nonempty": 0.7172203905655592,
+      "tn": 3049,
+      "fp": 998,
+      "fn": 117,
+      "tp": 1414
+    },
+    {
+      "threshold": 0.25,
+      "accuracy": 0.830225887414844,
+      "precision_nonempty": 0.636067101584343,
+      "recall_nonempty": 0.89157413455258,
+      "f1_nonempty": 0.7424530867555074,
+      "tn": 3266,
+      "fp": 781,
+      "fn": 166,
+      "tp": 1365
+    },
+    {
+      "threshold": 0.5,
+      "accuracy": 0.8592685550376479,
+      "precision_nonempty": 0.7018398268398268,
+      "recall_nonempty": 0.8471587197909863,
+      "f1_nonempty": 0.767682746374667,
+      "tn": 3496,
+      "fp": 551,
+      "fn": 234,
+      "tp": 1297
+    },
+    {
+      "threshold": 0.75,
+      "accuracy": 0.8755826461097167,
+      "precision_nonempty": 0.7627118644067796,
+      "recall_nonempty": 0.7935989549314174,
+      "f1_nonempty": 0.7778489116517284,
+      "tn": 3669,
+      "fp": 378,
+      "fn": 316,
+      "tp": 1215
+    },
+    {
+      "threshold": 1.0,
+      "accuracy": 0.8797059878092506,
+      "precision_nonempty": 0.8075822603719599,
+      "recall_nonempty": 0.7374265186152841,
+      "f1_nonempty": 0.7709115739160123,
+      "tn": 3778,
+      "fp": 269,
+      "fn": 402,
+      "tp": 1129
+    }
+  ],
+  "protocol": {
+    "point_extraction": "3x3 local maxima on stride-8 density map; keep up to rounded predicted count",
+    "coordinate_mapping": "stride-8 cell centers mapped to 512x512 crop coordinates",
+    "nms_distance_pixels": 16.0,
+    "matching": "one-to-one Hungarian assignment with Euclidean distance gate",
+    "note": "Choose extraction and occupancy thresholds on validation; freeze them before test evaluation."
+  }
+}

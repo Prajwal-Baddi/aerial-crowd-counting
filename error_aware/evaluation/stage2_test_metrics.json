@@ -1,0 +1,82 @@
+{
+  "checkpoint": "error_aware/checkpoints/stage2_best.pth",
+  "test_split": "full",
+  "seed": 42,
+  "budgets": [
+    0.1,
+    0.25,
+    0.4
+  ],
+  "results": {
+    "coarse_only": {
+      "mae": 0.7849193805700494,
+      "rmse": 2.3520276519783136,
+      "empty_mae": 0.20435157339497628,
+      "nonempty_mae": 2.321870648307542,
+      "samples": 5657,
+      "empty_samples": 4106,
+      "nonempty_samples": 1551,
+      "mean_inference_ms_per_crop": 27.201094484722454
+    },
+    "error_aware_10%": {
+      "mae": 0.7841231101819909,
+      "rmse": 2.3818632483273903,
+      "empty_mae": 0.1868840241989752,
+      "nonempty_mae": 2.3652086595348356,
+      "samples": 5657,
+      "empty_samples": 4106,
+      "nonempty_samples": 1551,
+      "mean_inference_ms_per_crop": 34.19967719642189
+    },
+    "random_10%": {
+      "mae": 0.7849356795614131,
+      "rmse": 2.3556167376116375,
+      "empty_mae": 0.20253937389882598,
+      "nonempty_mae": 2.326727575790029,
+      "samples": 5657,
+      "empty_samples": 4106,
+      "nonempty_samples": 1551,
+      "mean_inference_ms_per_crop": 34.04827037301177
+    },
+    "error_aware_25%": {
+      "mae": 0.7864921959672316,
+      "rmse": 2.3934164157035007,
+      "empty_mae": 0.18653863082844338,
+      "nonempty_mae": 2.3747638519697234,
+      "samples": 5657,
+      "empty_samples": 4106,
+      "nonempty_samples": 1551,
+      "mean_inference_ms_per_crop": 41.39146300161793
+    },
+    "random_25%": {
+      "mae": 0.7846717642132133,
+      "rmse": 2.361249743171853,
+      "empty_mae": 0.19991607559059496,
+      "nonempty_mae": 2.3327097123012015,
+      "samples": 5657,
+      "empty_samples": 4106,
+      "nonempty_samples": 1551,
+      "mean_inference_ms_per_crop": 41.23657656002429
+    },
+    "error_aware_40%": {
+      "mae": 0.7865767021355583,
+      "rmse": 2.3950180187316072,
+      "empty_mae": 0.18651975377179153,
+      "nonempty_mae": 2.375122047062461,
+      "samples": 5657,
+      "empty_samples": 4106,
+      "nonempty_samples": 1551,
+      "mean_inference_ms_per_crop": 48.751517995423576
+    },
+    "random_40%": {
+      "mae": 0.7848750748923693,
+      "rmse": 2.3678333678685637,
+      "empty_mae": 0.19723578323626714,
+      "nonempty_mae": 2.3405468553823474,
+      "samples": 5657,
+      "empty_samples": 4106,
+      "nonempty_samples": 1551,
+      "mean_inference_ms_per_crop": 48.50948585824317
+    }
+  }
+}

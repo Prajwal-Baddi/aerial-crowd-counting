@@ -1,0 +1,37 @@
+{
+    "checkpoint": "error_aware/checkpoints_stage1_holdout80/coarse_best.pth",
+    "test_crops": {
+        "mae": 0.769990292235328,
+        "rmse": 2.2427401491965764,
+        "mean_prediction": 1.1758974203027495,
+        "mean_ground_truth": 1.4071573261309926,
+        "count": 8886
+    },
+    "original_images": {
+        "mae": 4.74316090127719,
+        "rmse": 8.678511493618227,
+        "mean_prediction": 10.095675823005056,
+        "mean_ground_truth": 12.081159420289856,
+        "count": 1035
+    },
+    "empty_crops": {
+        "mae": 0.20398631260789946,
+        "rmse": 0.6471104959732606,
+        "mean_prediction": 0.20398631260789946,
+        "mean_ground_truth": 0.0,
+        "count": 6332
+    },
+    "nonempty_crops": {
+        "mae": 2.173254661460417,
+        "rmse": 4.057341830943911,
+        "mean_prediction": 3.5855063216041554,
+        "mean_ground_truth": 4.895849647611589,
+        "count": 2554
+    },
+    "prediction_diagnostics": {
+        "minimum_crop_prediction": 0.0,
+        "maximum_crop_prediction": 59.810298919677734,
+        "near_zero_crop_predictions": 4237,
+        "near_zero_prediction_percentage": 47.681746567634484
+    }
+}
